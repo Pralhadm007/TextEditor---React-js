@@ -38,23 +38,25 @@ function countWords(text) {
   const words = text.split(/\s+/);
   return words.length;
 }
-
+let style={
+  backgroundColor:'grey'
+}
 
 const [text, setText] = useState('Enter Text here');
   return (
     <>
-    <div className="container">
-      <div className="mb-3">
+    <div className="container" style={{color:props.mode==='dark'?'white':'black'}}>
+      <div className="mb-3" >
         <h1>{props.Headline}</h1>
-        <textarea className="form-control" value={text} onChange={handleOnChange} id="myBox" rows="8"/><br/>
-        <button className="btn btn-primary mx-1" onClick={handleUpClick}>Convert to Uppercase</button>
-        <button className="btn btn-primary mx-1" onClick={handleLoClick}>Convert to Lowercase</button>
-        <button className="btn btn-primary mx-1" onClick={handleClearClick}> Clear Text</button>
-        <button className="btn btn-primary mx-1" onClick={handleCopyClick}> Copy Text </button>
-        <button className="btn btn-primary mx-1" onClick={handleXtrspcClick}> Text Formatting </button>
+        <textarea className="form-control" value={text} style={{backgroundColor : props.mode==='dark' ? '#212529' : 'white', color : props.mode==='dark'?'white':'black'}} onChange={handleOnChange} id="myBox" rows="8"/><br/>
+        <button className="btn btn-primary mx-1 my-1" onClick={handleUpClick}>Convert to Uppercase</button>
+        <button className="btn btn-primary mx-1 my-1" onClick={handleLoClick}>Convert to Lowercase</button>
+        <button className="btn btn-primary mx-1 my-1" onClick={handleClearClick}> Clear Text</button>
+        <button className="btn btn-primary mx-1 my-1" onClick={handleCopyClick}> Copy Text </button>
+        <button className="btn btn-primary mx-1 my-1" onClick={handleXtrspcClick}> Text Formatting </button>
       </div>
     </div>
-    <div className="container">
+    <div className="container" style={{color:props.mode==='dark'?'white':'black'}}>
       <h1>Your text summary</h1>
       <p> {countWords(text)} words and {text.length} characters</p>
       <p>{0.08 * countWords(text)} Minutes to read</p>
