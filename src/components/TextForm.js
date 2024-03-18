@@ -6,25 +6,30 @@ const handleUpClick = ()=>{
   // console.log("Uppercase was clicked" + text);
   let newText = text.toUpperCase();
   setText(newText);
+  props.showAlert("Converted to Uppercase!","success");
 }
 const handleLoClick = ()=>{
   // console.log("Uppercase was clicked" + text);
   let newText = text.toLowerCase();
   setText(newText);
+  props.showAlert("Converted to Lowercase!","success");
 }
 const handleClearClick = ()=>{
   // console.log("Uppercase was clicked" + text);
   let newText = '';
   setText(newText);
+  props.showAlert("Text Box Cleared!","success");
 }
 const handleCopyClick = ()=>{
   const textcp = document.getElementById("myBox");
   textcp.select();
   navigator.clipboard.writeText(textcp.value);
+  props.showAlert("Text Copied to clipboard!","success");
 }
 const handleXtrspcClick = ()=>{
   let newTextl = text.split(/[ ]+/);
   setText(newTextl.join(" "));
+  props.showAlert("Extra spaces removed!","success");
 }
 const handleOnChange = (event)=>{
   // console.log("onchange was clicked" + text);
